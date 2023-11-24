@@ -39,12 +39,12 @@ function LoginPage() {
   };
 
   return (
-    <div className="hero min-h-screen  mt-52">
+    <div className="mt-52">
       <div className="">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold text-white"> VNRVJIET </h1>
-          <p className='text-white'>Food App</p>
-          <form className="mt-6" onSubmit={handleSubmit(onFormSubmit)}>
+          <h1 className="text-5xl font-bold text-white text-center"> VNRVJIET </h1>
+          <p className='text-white text-center'>Food App</p>
+          <form className="mt-6 text-center" onSubmit={handleSubmit(onFormSubmit)}>
             {/* username Input */}
             <div className=''>
             <div className="">
