@@ -5,12 +5,11 @@ import {
     scan,
     login,
     reset,
-
 } from "../controllers/admin.js";
 
 const router = express.Router();
 router.post("/register", register);
-router.post("/scan", scan);
+router.post("/scan",verifyToken ,scan);
 router.post("/login", login);
 router.post("/reset", reset);
 export default router;
