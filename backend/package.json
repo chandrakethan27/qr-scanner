@@ -17,6 +17,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "start":"node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -24,4 +25,5 @@
   "license": "ISC",
   "description": ""
 }
+
 
