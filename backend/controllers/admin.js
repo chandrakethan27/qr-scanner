@@ -36,8 +36,11 @@ export const register = async (req, res) => {
       const isMatch = await bcrypt.compare(password, admin.password);
       console.log(isMatch)
       if (!isMatch) return res.status(400).json({ message: "Invalid Password" });
-      let token = jwt.sign({id: admin._id},process.env.SECRET_KEY,{expiresIn:10000})
-      console.log(token)
+      let token = jwt.sign({id: admin._id},process.env.SECRET_KEY,{expiresIn:2*60*60})
+      let decodedToken = jwt.decode(token);
+
+// Log the expiration time
+      console.log('Token expiration time:', new Date(decodedToken.exp * 1000));
       res.status(200).json({message:"Success",payload:{token, username}})
     } catch (err) {
       res.status(500).json({ error: err.message });
