@@ -29,7 +29,7 @@ function Register() {
   };
 
   return (
-    <div className=''>
+    <div className='text-white'>
       <p className="text-4xl text-center m-4 ">Sign Up</p>
       <div className='flex justify-center mt-18 '>
         <div className=' mt-10 rounded-lg mb-10 px-20'>
@@ -40,7 +40,7 @@ function Register() {
                 <p className='m-3 font-bold'>First Name</p>
                 <input
                   type="text"
-                  className="input input-bordered input-info w-full max-w-xs"
+                  className="input input-bordered input-info w-full max-w-xs rounded"
                   {...register("firstName", { required: true })}
                 />
                 {errors.firstName?.type === "required" && (
@@ -53,7 +53,7 @@ function Register() {
                 <p className='m-3 font-bold'>Last Name</p>
                 <input
                   type="text"
-                  className="input input-bordered input-info w-full max-w-xs"
+                  className="input input-bordered input-info w-full max-w-xs rounded"
                   {...register("lastName", { required: true })}
                 />
                 {errors.lastName?.type === "required" && (
@@ -66,7 +66,7 @@ function Register() {
                 <p className='m-3 font-bold'>Username</p>
                 <input
                   type="text"
-                  className="input input-bordered input-info w-full max-w-xs"
+                  className="input input-bordered input-info w-full max-w-xs rounded"
                   {...register("username", { required: true })}
                 />
                 {errors.username?.type === "required" && (
@@ -79,7 +79,7 @@ function Register() {
                 <p className='m-3 font-bold'>Password</p>
                 <input
                   type="password"
-                  className="input input-bordered input-info w-full max-w-xs"
+                  className="input input-bordered input-info w-full max-w-xs rounded"
                   {...register("password", { required: true, minLength: 5 })}
                 />
                 {errors.password?.type === "required" && (
@@ -91,7 +91,7 @@ function Register() {
               </div>
 
               <br />
-              <button className='bg-stone-400'>
+              <button className='bg-yellow-400 text-black rounded px-2 py-2'>
                 Register
               </button>
             </form>
@@ -103,3 +103,4 @@ function Register() {
 }
 
 export default Register;
+
