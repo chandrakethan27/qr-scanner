@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import QrScanner from 'react-qr-scanner';
 import { useNavigate } from 'react-router-dom';
@@ -49,7 +49,15 @@ const HomePage = () => {
   };
 
   const processScanResult = (data) => {
-    axios.post('http://localhost:3001/admin/scan', data)
+    const token = localStorage.getItem('token');
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+    
+    axios.post('http://localhost:3001/admin/scan', data, config)
       .then((response) => {
         if (response.data.msg === "success") {
           setMessage("Valid");
@@ -113,3 +121,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
