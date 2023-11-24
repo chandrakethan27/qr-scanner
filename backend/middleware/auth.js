@@ -15,9 +15,10 @@ export const verifyToken = (req, res, next) => {
     // Debugging: Check the value of the token
     console.log("Received token:", token);
 
-    const tokenWithoutBearer = token.slice(7).trimLeft();
+    const tokenWithoutBearer=req.headers.authorization?.split(" ")[1]
     const verified = jwt.verify(tokenWithoutBearer, process.env.SECRET_KEY);
     req.user = verified;
+    console.log(verified);
     next();
   } catch (err) {
     console.error("Token verification error:", err.message);
@@ -25,8 +26,9 @@ export const verifyToken = (req, res, next) => {
     if (err.name === 'TokenExpiredError') {
       return res.status(401).json({ error: "Unauthorized. Token has expired." });
     }
-
     return res.status(401).json({ error: "Unauthorized. Invalid token." });
   }
 };
+
+
 
