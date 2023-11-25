@@ -31,7 +31,7 @@ const PORT = process.env.PORT || 6001;
 const mongoose = require('mongoose');
 
 // Replace 'process.env.MONGODB_URI' with your actual environment variable
-mongoose.connect(process.env.URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://abcd:abcd@cluster0.ycddi86.mongodb.net/collegefood?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 
 .then(()=>{
     app.listen(PORT, () => console.log(`Server running on port: ${PORT}`))
