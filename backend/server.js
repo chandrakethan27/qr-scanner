@@ -28,11 +28,11 @@ app.use("/admin", adminRoutes);
 
 const PORT = process.env.PORT || 6001;
 
-mongoose
-.connect(process.env.URL, { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true 
-})
+const mongoose = require('mongoose');
+
+// Replace 'process.env.MONGODB_URI' with your actual environment variable
+mongoose.connect(process.env.URL, { useNewUrlParser: true, useUnifiedTopology: true });
+
 .then(()=>{
     app.listen(PORT, () => console.log(`Server running on port: ${PORT}`))
     // User.insertMany(users)
